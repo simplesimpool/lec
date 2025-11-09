@@ -84,7 +84,6 @@ INDEX VERSION 1.134+C:\Users\HG\Desktop\LK\lec\backend\.metadata\.plugins\org.ec
 2220967278.index
 3083967492.index
 3489021471.index
-1865797976.index
 4285904397.index
 23545667.index
 2855338144.index
