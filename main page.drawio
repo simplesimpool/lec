@@ -1,0 +1,31 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" version="28.2.9">
+  <diagram name="페이지-1" id="wXjH9V2P3f7cXJ2y9ski">
+    <mxGraphModel dx="1426" dy="777" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="S9pFDRtXueCLU3oijhdz-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="410" width="800" height="720" as="geometry" />
+        </mxCell>
+        <mxCell id="S9pFDRtXueCLU3oijhdz-4" value="footer" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="1050" width="800" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="S9pFDRtXueCLU3oijhdz-7" value="로그인" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="960" y="410" width="190" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="S9pFDRtXueCLU3oijhdz-10" value="채팅방" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="750" y="410" width="210" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="S9pFDRtXueCLU3oijhdz-11" value="게시판" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="410" width="190" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="S9pFDRtXueCLU3oijhdz-12" value="강의" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="410" width="210" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="S9pFDRtXueCLU3oijhdz-15" value="내용" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="470" width="800" height="580" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
