@@ -25,13 +25,24 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
-	runtimeOnly 'org.postgresql:postgresql'
-	annotationProcessor 'org.projectlombok:lombok'
+	//spring test dependencies
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	//spring starter dependencies
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	//jwt dependencies
+	implementation 'io.jsonwebtoken:jjwt-api:0.13.0'
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.13.0'
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.13.0'
+	//jwt dependencies
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	//postgresql dependencies
+	runtimeOnly 'org.postgresql:postgresql'
+	//aws sdk
+	implementation 'software.amazon.awssdk:s3:2.20.5'
 }
 
 tasks.named('test') {
