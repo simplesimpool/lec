@@ -8,6 +8,7 @@ class LecApplicationTests {
 
 	@Test
 	void contextLoads() {
+		System.out.println("helloworld");
 	}
 
 }
