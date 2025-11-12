@@ -1,0 +1,44 @@
+package com.lec.webproj.entity;
+
+import java.sql.Timestamp;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.MapsId;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Table(name = "user_login_state")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class UserLoginState {
+
+    @Id
+    @Column(name = "user_id", length = 100)
+    private String userId;
+    
+    @Column(name = "user_avail_login_start_date", nullable = true)
+    @Builder.Default
+    private Timestamp userAvailLoginStartDate = null;
+    
+    @Column(name = "user_exp_login_date", nullable = true)
+    @Builder.Default
+    private Timestamp userExpLoginDate = null;
+    
+    @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
+    @JoinColumn(name = "user_id")
+    private User user;
+}
