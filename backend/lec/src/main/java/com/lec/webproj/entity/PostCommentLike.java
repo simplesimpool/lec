@@ -1,6 +1,7 @@
 package com.lec.webproj.entity;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
@@ -32,7 +33,8 @@ public class PostCommentLike {
 	private PostCommentLikeId postCommentLikeId;
 	   
 	@Column(name = "post_cmt_like_reg_date", nullable = false)
-	private Timestamp postCmtLikeRegDate;
+	@Builder.Default
+	private LocalDateTime postCmtLikeRegDate = LocalDateTime.now();
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@MapsId("userId")

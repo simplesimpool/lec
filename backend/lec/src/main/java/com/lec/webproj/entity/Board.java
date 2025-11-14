@@ -1,6 +1,7 @@
 package com.lec.webproj.entity;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -32,7 +33,8 @@ public class Board {
     private String boardName;
     
     @Column(name = "board_reg_date", nullable = false)
-    private Timestamp boardRegDate;
+    @Builder.Default
+    private LocalDateTime boardRegDate = LocalDateTime.now();
     
     @Column(name = "board_is_del", nullable = false)
     @Builder.Default

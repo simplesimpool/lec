@@ -1,6 +1,8 @@
 package com.lec.webproj.entity;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
+
+import com.lec.webproj.enums.UserRole;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -20,7 +22,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @Builder
 public class User {
-
     @Id
     @Column(name = "user_id", length = 100)
     private String userId;
@@ -35,10 +36,12 @@ public class User {
     private String userNickName;
 
     @Column(name = "user_role", nullable = false, length = 50)
-    private String userRole;
+    @Builder.Default
+    private String userRole = UserRole.USER.getRole();
     
     @Column(name = "user_reg_date", nullable = false)
-    private Timestamp userRegDate;
+    @Builder.Default
+    private LocalDateTime userRegDate = LocalDateTime.now();
     
     @Column(name = "user_email", nullable = true, length = 100)
     private String userEmail;

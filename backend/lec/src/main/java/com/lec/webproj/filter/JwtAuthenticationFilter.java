@@ -15,8 +15,15 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 	@Override
-	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
-			throws ServletException, IOException {
+	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+		String authHeader = request.getHeader("Authorization");
+		System.out.println("asdfd");
+		
+		String path = request.getRequestURI();
+
+	    if (path.equals("/api/auth/login") || path.equals("/api/auth/join")) {
+	        return;
+	    }
 		filterChain.doFilter(request, response);
 	}
 }

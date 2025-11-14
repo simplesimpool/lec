@@ -1,6 +1,7 @@
 package com.lec.webproj.entity;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,7 +23,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class UserLoginState {
 
     @Id
@@ -30,12 +30,10 @@ public class UserLoginState {
     private String userId;
     
     @Column(name = "user_avail_login_start_date", nullable = true)
-    @Builder.Default
-    private Timestamp userAvailLoginStartDate = null;
+    private LocalDateTime userAvailLoginStartDate;
     
     @Column(name = "user_exp_login_date", nullable = true)
-    @Builder.Default
-    private Timestamp userExpLoginDate = null;
+    private LocalDateTime userExpLoginDate;
     
     @OneToOne(fetch = FetchType.LAZY)
     @MapsId

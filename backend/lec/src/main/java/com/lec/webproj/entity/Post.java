@@ -1,6 +1,7 @@
 package com.lec.webproj.entity;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -35,7 +36,8 @@ public class Post {
     private String postContent;
     
     @Column(name = "post_reg_date", nullable = false)
-    private Timestamp postRegDate;
+    @Builder.Default
+    private LocalDateTime postRegDate = LocalDateTime.now();
     
     @Column(name = "post_like_cnt", nullable = false)
     @Builder.Default
