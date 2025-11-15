@@ -19,7 +19,6 @@ public class AuthController {
 	
 	@PostMapping("/api/auth/join")
 	public ResponseEntity<String> join(@RequestBody JoinDTO dto) {
-		System.out.println("asdfasd");
 		int result = userService.join(dto);
 		
 		if (result > 0) {

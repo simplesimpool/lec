@@ -1,28 +1,18 @@
 package com.lec.webproj.dto;
 
-import java.lang.reflect.Field;
-
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
-public class JoinDTO implements CommonDTOHandler {
+public class JoinDTO {
+	@NotBlank
 	private String userId;
+	@NotBlank
 	private String userPw;
+	@NotBlank
 	private String userName;
+	@NotBlank
 	private String userNickName;
+	@NotBlank
 	private String userEmail;
-	
-	@Override
-	public Boolean isNullDataExist() throws IllegalArgumentException, IllegalAccessException {
-		Object value = null;
-		
-		for (Field field : this.getClass().getDeclaredFields()) {
-			value = field.get(this);
-			if (value == null) {
-				return true;
-			}
-		}
-		
-		return false;
-	}
 }

@@ -31,12 +31,13 @@ public class SecurityConfig {
         .cors(Customizer.withDefaults())
         .csrf(csrf -> csrf.disable())
         .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+        .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
         .authorizeHttpRequests(auth -> auth
-        		.requestMatchers("/api/auth/login").permitAll()
-        		.requestMatchers("/api/auth/join").permitAll()
-        		.anyRequest().authenticated()
-        )
-        .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+			.requestMatchers("/api/auth/login").permitAll()
+			.requestMatchers("/api/auth/join").permitAll()
+			.anyRequest().authenticated()
+        );
+       
         return http.build();
     }
 

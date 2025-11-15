@@ -11,11 +11,7 @@ import lombok.RequiredArgsConstructor;
 class LecApplicationTests {
 	
 	@Test
-	void contextLoads() throws IllegalArgumentException, IllegalAccessException {
-		JoinDTO dto = new JoinDTO();
-		dto.setUserId("userId1");
-		dto.setUserPw("userEmail1");
+	void contextLoads() {
 		
-		dto.isNullDataExist();
 	}
 }

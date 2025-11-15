@@ -1,7 +1,6 @@
 package com.lec.webproj.filter;
 
 import java.io.IOException;
-
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -17,13 +16,13 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 		String authHeader = request.getHeader("Authorization");
-		System.out.println("asdfd");
 		
-		String path = request.getRequestURI();
-
-	    if (path.equals("/api/auth/login") || path.equals("/api/auth/join")) {
-	        return;
-	    }
+		
+		if (authHeader == null || authHeader.substring(0, 6) != "Bearer ") {
+			filterChain.doFilter(request, response);
+			return;
+		}
+		
 		filterChain.doFilter(request, response);
 	}
 }
