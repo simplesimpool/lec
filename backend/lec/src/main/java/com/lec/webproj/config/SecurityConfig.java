@@ -16,6 +16,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.lec.webproj.filter.JwtAuthenticationFilter;
+import com.lec.webproj.service.UserService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -31,10 +32,9 @@ public class SecurityConfig {
         .cors(Customizer.withDefaults())
         .csrf(csrf -> csrf.disable())
         .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-        .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+        //.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
         .authorizeHttpRequests(auth -> auth
-			.requestMatchers("/api/auth/login").permitAll()
-			.requestMatchers("/api/auth/join").permitAll()
+			.requestMatchers("/api/join").permitAll()
 			.anyRequest().authenticated()
         );
        

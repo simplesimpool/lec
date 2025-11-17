@@ -10,7 +10,6 @@ public enum UserRole {
         this.role = role;
     }
 
-    // getter
     public String getRole() {
         return role;
     }

@@ -23,7 +23,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @Builder
 public class Board {
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "board_id")

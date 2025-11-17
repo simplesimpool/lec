@@ -1,12 +1,17 @@
 package com.lec.webproj.entity;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 import com.lec.webproj.enums.UserRole;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,11 +34,18 @@ public class User {
     @Column(name = "user_pw", nullable = false, length = 100)
     private String userPw;
     
-    @Column(name = "user_name", nullable = false, length = 100)
-    private String userName;
+    @Column(name = "user_uuid", nullable = false, unique = true)
+    @Builder.Default
+    private UUID userUUID = UUID.randomUUID();
     
     @Column(name = "user_nick_name", nullable = false, unique = true, length = 100)
     private String userNickName;
+    
+    @Column(name = "user_first_name", nullable = false, length = 100)
+    private String userFirstName;
+    
+    @Column(name = "user_last_name", nullable = false, length = 100)
+    private String userLastName;
 
     @Column(name = "user_role", nullable = false, length = 50)
     @Builder.Default
@@ -49,4 +61,8 @@ public class User {
     @Column(name = "user_is_del", nullable = false)
     @Builder.Default
     private Boolean userIsDel = false;
+    
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private UserLoginState userLoginState;
 }

@@ -10,7 +10,9 @@ public class JoinDTO {
 	@NotBlank
 	private String userPw;
 	@NotBlank
-	private String userName;
+	private String userFirstName;
+	@NotBlank
+	private String userLastName;
 	@NotBlank
 	private String userNickName;
 	@NotBlank
