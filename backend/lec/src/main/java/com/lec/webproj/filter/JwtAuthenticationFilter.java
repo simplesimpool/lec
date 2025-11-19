@@ -1,8 +1,12 @@
 package com.lec.webproj.filter;
 
 import java.io.IOException;
+
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
+
+import com.lec.webproj.service.UserService;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -15,13 +19,7 @@ import lombok.RequiredArgsConstructor;
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-		String authHeader = request.getHeader("Authorization");
-		
-		if (authHeader == null || !authHeader.substring(0, 6).equals("Bearer ")) {
-			filterChain.doFilter(request, response);
-			return;
-		}
-		
+		System.out.println("this is jwtauthenticaionfilter");
 		filterChain.doFilter(request, response);
 	}
 }

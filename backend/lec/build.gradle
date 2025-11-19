@@ -25,7 +25,7 @@ repositories {
 }
 
 dependencies {
-	//spring test dependencies
+	//spring test 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	
@@ -35,19 +35,19 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	
-	//jwt dependencies
+	//jwt
 	implementation 'io.jsonwebtoken:jjwt-api:0.13.0'
 	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.13.0'
 	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.13.0'
 	
-	//lombok dependencies
+	//lombok 
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	
-	//postgresql dependencies
+	//postgresql
 	runtimeOnly 'org.postgresql:postgresql'
 	
-	//aws sdk
+	//aws
 	implementation 'software.amazon.awssdk:s3:2.20.5'
 }
 
