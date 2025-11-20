@@ -1,16 +1,13 @@
 package com.lec.webproj.dto;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
 import lombok.Data;
 
 @Data
-@Builder
-public class LoginDTO implements CommonDTOHandler {
+public class LoginDTO {
+	@NotBlank
 	private String userId;
+	@NotBlank
 	private String userPw;
-	
-	@Override
-	public boolean isNullDataExists() {
-		if (this.userId == null || this.userPw == null) return true; else return false;
-	}
 }

@@ -1,0 +1,37 @@
+package com.lec.webproj.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import com.lec.webproj.dto.LoginDTO;
+import com.lec.webproj.service.UserService;
+
+import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+
+@RestController
+@RequiredArgsConstructor
+public class AuthController {
+	private final UserService userService;
+	
+	@PostMapping("/api/auth/jwt/login")
+	public ResponseEntity<Map<String, Object>> login(@RequestBody LoginDTO dto, HttpServletResponse response) {
+		Map<String, Object> responseBody = new HashMap<>();
+		
+		try {
+			userService.login(dto);
+		} catch (Exception e) {
+			
+		}
+		
+		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(responseBody);
+	}
+}

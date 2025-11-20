@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-		System.out.println("this is jwtauthenticaionfilter");
+		System.out.println("this is jwt authenticaionfilter");
 		filterChain.doFilter(request, response);
 	}
 }

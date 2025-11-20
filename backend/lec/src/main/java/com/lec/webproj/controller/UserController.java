@@ -21,21 +21,21 @@ public class UserController {
 	
 	@PostMapping("/api/users")
 	public ResponseEntity<Map<String, Object>> join(@RequestBody JoinDTO dto) {
-		Map<String, Object> response = new HashMap<>();
+		Map<String, Object> responseBody = new HashMap<>();
 		
 		try {
 			userService.join(dto);
 		} catch (RuntimeException e) {
-			response.put("success", false);
-			response.put("msg", "이미 존재하는 아이디 이거나 중복된 닉네임입니다.");
-			return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+			responseBody.put("success", false);
+			responseBody.put("msg", "이미 존재하는 아이디 이거나 중복된 닉네임입니다.");
+			return ResponseEntity.status(HttpStatus.CONFLICT).body(responseBody);
 		} catch (Exception e) {
-			response.put("success", false);
-			response.put("msg", "내부 서버 오류");
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+			responseBody.put("success", false);
+			responseBody.put("msg", "내부 서버 오류");
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(responseBody);
 		}
-		response.put("success", true);
-		response.put("msg", "회원가입 성공");
-		return ResponseEntity.status(HttpStatus.CREATED).body(response);
+		responseBody.put("success", true);
+		responseBody.put("msg", "회원가입 성공");
+		return ResponseEntity.status(HttpStatus.CREATED).body(responseBody);
 	}
 }

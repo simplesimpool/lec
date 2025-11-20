@@ -1,17 +1,20 @@
 package com.lec.webproj;
 
+import java.sql.Time;
+import java.time.LocalDateTime;
+import java.util.UUID;
+
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-import com.lec.webproj.dto.JoinDTO;
+import com.lec.webproj.utility.JwtUtility;
 
-import lombok.RequiredArgsConstructor;
+import io.jsonwebtoken.Claims;
 
-@SpringBootTest
 class LecApplicationTests {
-	
+	private final JwtUtility jwtUtility = new JwtUtility();
+	private final UUID uuid = UUID.randomUUID();
 	@Test
-	void contextLoads() {
+	void contextLoads() throws InterruptedException {
 		
 	}
 }
