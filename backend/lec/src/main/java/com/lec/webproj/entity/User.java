@@ -61,8 +61,4 @@ public class User {
     @Column(name = "user_is_del", nullable = false)
     @Builder.Default
     private Boolean userIsDel = false;
-    
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private UserLoginState userLoginState;
 }

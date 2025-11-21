@@ -48,14 +48,15 @@ public class JwtUtility {
     		
     		claimMap.put("claims", claims);
     		claimMap.put("status", JwtStatus.VAILD);
-    		
     		return claimMap;
-    	} catch (ExpiredJwtException e) {
-    		claimMap.put("status", JwtStatus.EXPIRED);
-			return claimMap;
-		} catch (Exception e) {
-    		claimMap.put("status", JwtStatus.INVALID);
-    		return claimMap;
+    	} catch (JwtException e) {
+    		if (e instanceof ExpiredJwtException) {
+    			claimMap.put("status", JwtStatus.EXPIRED);
+    			return claimMap;
+    		} else {
+    			claimMap.put("status", JwtStatus.INVALID);
+    			return claimMap;
+    		}
 		}
     }
 }

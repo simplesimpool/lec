@@ -27,7 +27,7 @@ public class UserController {
 			userService.join(dto);
 		} catch (RuntimeException e) {
 			responseBody.put("success", false);
-			responseBody.put("msg", "이미 존재하는 아이디 이거나 중복된 닉네임입니다.");
+			responseBody.put("msg", e.getMessage());
 			return ResponseEntity.status(HttpStatus.CONFLICT).body(responseBody);
 		} catch (Exception e) {
 			responseBody.put("success", false);

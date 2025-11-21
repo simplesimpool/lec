@@ -28,10 +28,17 @@ public class AuthController {
 		
 		try {
 			userService.login(dto);
+		} catch (RuntimeException e) {
+			responseBody.put("success", false);
+			responseBody.put("msg", e.getMessage());
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseBody);
 		} catch (Exception e) {
-			
+			responseBody.put("success", false);
+			responseBody.put("msg", "서버 오류");
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(responseBody);
 		}
-		
-		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(responseBody);
+		responseBody.put("success", true);
+		responseBody.put("msg", "로그인 성공");
+		return ResponseEntity.status(HttpStatus.OK).body(responseBody);
 	}
 }

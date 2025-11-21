@@ -30,7 +30,7 @@ public class SecurityConfig {
 	private final JwtAuthenticationFilter jwtAuthenticationFilter;
 	
 	@Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain apiSecurityFilterChain(HttpSecurity http) throws Exception {
 		http
         .securityMatcher("/**")
         .cors(Customizer.withDefaults())
@@ -41,7 +41,6 @@ public class SecurityConfig {
         .authorizeHttpRequests(auth -> auth
         		.requestMatchers(HttpMethod.POST, "/api/users").permitAll()
         		.requestMatchers(HttpMethod.POST, "/api/auth/jwt/login").permitAll()
-        		.requestMatchers(HttpMethod.POST, "/api/auth/jwt/logout").permitAll()
         		.anyRequest().authenticated()
         )
         .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);

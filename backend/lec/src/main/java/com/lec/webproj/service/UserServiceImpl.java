@@ -36,7 +36,6 @@ public class UserServiceImpl implements UserService {
 		} else if (isUserNickNameExists) {
 			throw new RuntimeException("중복된 닉네임");
 		} else {
-			User savedUser = null;
 			User newUser = User.builder()
 					.userId(dto.getUserId())
 					.userPw(bCryptPasswordEncoder.encode(dto.getUserPw()))
@@ -49,12 +48,12 @@ public class UserServiceImpl implements UserService {
 			UserLoginState newUserLoginState = UserLoginState.builder()
 					.user(newUser)
 					.build();
-
-			entityManager.persist(newUserLoginState);
-			newUser.setUserLoginState(newUserLoginState);
-			savedUser = userRepository.save(newUser);
-			
-			if (savedUser == null) throw new RuntimeException("회원가입 실패");
+			try {
+				entityManager.persist(newUserLoginState);
+				userRepository.save(newUser);
+			} catch (Exception e) {
+				throw new RuntimeException("회원가입 실패");
+			}
 		}
 	}
 
@@ -64,10 +63,10 @@ public class UserServiceImpl implements UserService {
 		User user = userRepository.findById(dto.getUserId()).orElseThrow(() -> new RuntimeException("아이디가 존재 하지 않음"));
 		Boolean isPwMatches = bCryptPasswordEncoder.matches(dto.getUserPw(), user.getUserPw());
 		
-		if (!isPwMatches) {
-			throw new RuntimeException("비밀번호 일치 하지 않음");
-		} else {
+		if (isPwMatches) {
 			System.out.println("asdf");
+		} else {
+			throw new RuntimeException("비밀번호 일치 하지 않음");
 		}
 	}
 }
